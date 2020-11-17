@@ -22,6 +22,8 @@ const BlogIndex = ({ data, location }) => {
     )
   }
 
+  
+
   return (
     
     <Layout location={location} title={siteTitle}>
@@ -45,6 +47,7 @@ const BlogIndex = ({ data, location }) => {
                     </Link>
                   </h2>
                 </header>
+                <img src={post.node.image.fluid.src} alt={post.node.title} />
                 <p>{post.node.subtitle}</p>
               </article>
             </li>
@@ -71,6 +74,11 @@ export const pageQuery = graphql`
           subtitle
           author
           slug
+          image {
+            fluid {
+              src
+            }
+          }
         }
       }
     }

@@ -7,8 +7,9 @@ import SEO from "../components/seo"
 
 const BlogPostContentfulTemplate = ({ data, location }) => {
   const post = data.contentfulPost
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.contentfulPost.author
   const { previous, next } = data
+
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -21,14 +22,15 @@ const BlogPostContentfulTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
+      
         <header>
           <h1 itemProp="headline">{post.title}</h1>
-          <p>{post.date}</p>
+          <p>{post.author}</p>
         </header>
-        <section
+        {/* <section
           dangerouslySetInnerHTML={{ __html: post.content.raw.html }}
           itemProp="articleBody"
-        />
+        /> */}
         <hr />
         <footer>
           <Bio />
