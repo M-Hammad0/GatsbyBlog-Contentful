@@ -31,7 +31,7 @@ jobs:
       run: |
         yarn install --production
         yarn build
-      env:
+      with:
           CONTENTFUL_ACCESS_TOKEN: ${{secrets.CONTENFUL_ACCESS_TOKEN}}
 
     - name: Deploy to Netlify
